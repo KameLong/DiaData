@@ -35,6 +35,12 @@ class Train(val route: Route, val diagram:Diagram){
     var stationTime:ArrayList<StationTime> = ArrayList<StationTime>()
 
     /**
+     * 列車順の番号
+     */
+    val trainIndex:Int
+    get()=diagram.train[direction.ordinal].indexOf(this)
+
+    /**
      * 運用
      */
     var operationItem:ArrayList<OperationItem> = ArrayList()
@@ -43,7 +49,6 @@ class Train(val route: Route, val diagram:Diagram){
      * 初期設定
      */
     init{
-
         operationItem.add(OperationItem(Operation(),this))
     }
 
@@ -152,6 +157,11 @@ class Train(val route: Route, val diagram:Diagram){
         json.addProperty("name",name)
         json.addProperty("count",count)
         json.addProperty("remark",remark)
+        val operationJson=JsonArray()
+        for(item in operationItem){
+            operationJson.add(item.toJSON())
+        }
+        json.add("operationItems",operationJson)
         val stationTimeJson=JsonArray()
         for (sTime in stationTime){
             stationTimeJson.add(sTime.toJSON())

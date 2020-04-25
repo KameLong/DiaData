@@ -30,6 +30,9 @@ class DiaData{
     var routes:ArrayList<Route> = ArrayList()
     var trainTypes:ArrayList<TrainType> = ArrayList()
     var diagramNames:ArrayList<String> = ArrayList()
+
+    var operations:ArrayList<Operation> = ArrayList()
+
     fun loadFile(file:File){
         if(!file.isFile){
             throw Exception("not found this file")

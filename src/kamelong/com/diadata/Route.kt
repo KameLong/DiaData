@@ -196,6 +196,7 @@ class Route(val diaData: DiaData){
             diagramJSON.add(diagram.toJSON())
         }
         json.add("diagram",diagramJSON)
+
         val outFile=PrintWriter(File(filePath))
         outFile.write(json.toString())
     }

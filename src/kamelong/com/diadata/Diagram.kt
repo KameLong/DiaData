@@ -27,7 +27,7 @@ class Diagram(@Transient val route:Route){
     /**
      * OuDia形式で出力します
      */
-    fun saveAsOuDia(out: PrintWriter) {
+    fun toOuDia(out: PrintWriter) {
         out.println("Dia.")
         out.println("DiaName=$name")
         out.println("Kudari.")

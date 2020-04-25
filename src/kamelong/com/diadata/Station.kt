@@ -37,6 +37,10 @@ class Station(@Transient val route: Route) {
     var track:ArrayList<Track> = ArrayList()
     var mainTrack:Array<Int> = arrayOf(0,1)
 
+    val stationIndex:Int
+    get()=route.stations.indexOf(this)
+
+
     //OuDia形式のデータを取り込む
     fun setOuDiaValue(key:String,value:String){
         when (key) {
