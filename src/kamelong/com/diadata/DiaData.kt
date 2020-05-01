@@ -33,6 +33,10 @@ class DiaData{
 
     var operations:ArrayList<Operation> = ArrayList()
 
+    /**
+     * ファイルの読み込み操作を行う。
+     * どんなファイルであってもまずこの関数を用いる。
+     */
     fun loadFile(file:File){
         if(!file.isFile){
             throw Exception("not found this file")
@@ -47,6 +51,10 @@ class DiaData{
         }
     }
 
+    /**
+     * SQLite形式で保存する
+     * まだ完成されていない
+     */
     fun saveAsSQL(filePath:String){
         val file= File(filePath)
         if(file.isFile){
